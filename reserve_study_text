@@ -1,0 +1,38 @@
+python3 manage.py runserver --settings=settings.dev
+
+## for making requirment txt file
+pip3 freeze > requirements.txt
+
+## for installing all items requirment txt file
+pip install requirements.txt 
+
+python3 manage.py runserver --settings=settings.dev 0.0.0.0:3011
+
+python3 manage.py runserver  0.0.0.0:3011
+
+ui of reserve study
+
+https://dev-h69ax0cs.auth0.com/login?state=hKFo2SAyMTRHcDh4MGVKTmRZMFptMnlKcUx4R1FyVTdhVXdFdaFupWxvZ2luo3RpZNkgU01rSE1JSEpsZDl4RWkxNVFtd2ZEcmt5bG55WTV4Z2qjY2lk2SBiQm01QkNvWVB6VXRzd1VnMEw4OG5QOUMwQ1ZJV2tENA&client=bBm5BCoYPzUtswUg0L88nP9C0CVIWkD4&protocol=oauth2&response_type=code&scope=openid%20email&redirect_uri=https%3A%2F%2Fapp.fjstrategic.com%2Flogin%2Foauth2%2Fcode%2Fshinyproxy&nonce=8-hw6QBElghYpM4S8JWgURtSE5zuVzk4A2T8sRaPuHs
+
+
+https://app.fjstrategic.com
+info@pnwig.com
+@D_$!PN7#6L+jv%
+
+
+when port stop 
+netstat -ntlp
+sudo lsof -t -i tcp:3011 | xargs kill -9
+
+
+python manage.py startapp 
+    
+# for interaction with database
+
+python manage.py dbshell
+\dt all tables you can see
+\t all databse you can see
+\c for changing database
+
+    
+

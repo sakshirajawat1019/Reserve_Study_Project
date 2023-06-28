@@ -1,0 +1,80 @@
+body {
+    color: #404E67;
+    background: #F5F7FA;
+font-family: 'Open Sans', sans-serif;
+}
+
+table.table th:last-child {
+    width: 100px;
+}
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}   
+table.table td a.add,
+table.table td a.add-loan,
+table.table td a.add-initial, 
+table.table td a.update-initial,
+table.table td a.add-unit {
+    color: #27C46B;
+}
+
+table.table td a.delete,
+table.table td a.delete-loan,
+table.table-unit td a.delete-unit {
+    color: #E34724;
+}
+table.table td a.edit-initial {
+    color: #FFC107;
+}
+
+table.table td i {
+    font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add,
+table.table-loan td .add-loan,
+table.table-unit td .add-unit {
+    display: none;
+}
+
+table.table td .edit-initial{
+    display: none;
+}
+
+.scenario{
+    padding: 4px 5px;
+    border-radius: 5px;
+    width: 90%;
+    border: 1px solid black;
+}
+
+.scenario:focus{
+    outline:none;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow:scroll;
+    width: 32%;
+}
+.table-wrapper-scroll-y {
+        display: block;
+}

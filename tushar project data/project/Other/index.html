@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <link rel="stylesheet" href="./static/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <script src="https://kit.fontawesome.com/37ca218f1d.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./static/logo.png" type="image/x-icon">
+    <title>Reserve Study</title>
+</head>
+
+<body>
+
+    <section class="form" id = "form">
+    <form action="/calculate" method="POST">
+
+        <div class="common-expense">
+            <h1 class="heading">Common Expenses</h1>
+            <div class="inputBox">
+                <div class="input">
+                    <span> Year </span>
+                    <!-- <select class="city" id="city" name="year" required>
+                        <option value="#">Select</option>
+                        <option value="2018">2018</option>
+                        <option value=2019>2019</option>
+                        <option value=2020>2020</option>
+                    </select> -->
+                    <input type = "number" name="year" placeholder=" Starting Year " required>
+                </div>
+                <div class="input">
+                    <span>Projection of Years </span>
+                        <input type = "number" name="projection_year" placeholder=" Projection of Years " required>
+                </div>
+                <div class="input">
+                    <span> HOA Common Expenses Dues </span>
+                    <input name="common_expenses Dues" placeholder=" HOA Common Expenses Dues " required>
+                </div>
+                <div class="input">
+                    <span>Number of Units</span>
+                    <input name="number_units" placeholder="Number of Units" required>
+                </div>
+                <div class="input">
+                    <span>Minus Delinquent Payments</span>
+                    <select id = "dropDownId" class="delinquent_rate" name="minus_delinquent_payment" required>
+                        <option value="0">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input hide percentage_field">
+                    <span>Delinquent Rate in %</span>
+                    <input name="delinquent_rate" placeholder=" Delinquent Rate in % " value="0" required>
+                </div>
+                <div class = "input">
+                    <div class="input">
+                        <span>Inflation Rate in %</span>
+                        <input name="inflation_rate" placeholder="Inflation Rate in %" required>
+                    </div>
+                </div>
+            </div>
+            <!-- <h1> COMMON EXPENSES </h1>
+            <div class="inputBox">
+                <div class="input">
+                    <span> HOA Common Expenses Dues </span>
+                    <input name="common_expenses Dues" placeholder=" HOA Common Expenses Dues " required>
+                </div>
+                <div class="input">
+                    <span>Number of Units</span>
+                    <input name="number_units" placeholder="Number of Units" required>
+                </div>
+            </div>
+            <div class="inputBox">
+                <div class="input">
+                    <span>Minus Delinquent Payments</span>
+                    <select id = "dropDownId" class="delinquent_rate" name="minus_delinquent_payment" required>
+                        <option value="0">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input hide percentage_field">
+                    <span>Delinquent Rate in %</span>
+                    <input name="delinquent_rate" placeholder=" Delinquent Rate in % " value="0" required>
+                </div>
+            </div>
+            <div class="inputBox" >
+                <div class = "input">
+                    <div class="input">
+                        <span>Inflation Rate in %</span>
+                        <input name="inflation_rate" placeholder="Inflation Rate in %" required>
+                    </div>
+                </div>
+            </div> -->
+            <h1>COMMON EXPENSES (Yearly)</h1>
+            
+            <div id="newinput" class="inputBox after-add-more">  
+                <div class = "input">
+                    <span>Expense Name</span>
+                    <input  type="text" name="key0"  placeholder="Field Name" required>  
+                </div>
+                <div class = "input">
+                    <span>Price</span>
+                    <div class="input-group input_group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" name="value0"  placeholder="Price" required> 
+                    </div>    
+                </div> 
+            </div>
+            
+            <!-- <div class="copy hide">  
+                <div class=" inputBox " style="margin-top:10px"> 
+                    <div class = "input">
+                        <span>Field Name</span>
+                        <input id = "textId" type="text"  placeholder="Field Name">  
+                    </div>
+                    <div class = "input">
+                        <span>Price</span>
+                        <input id = "textId1" type="text" placeholder="Price"> 
+                    </div>
+                </div>  
+            </div> -->
+            <div class="input">   
+                <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i>+</button>  
+            </div>
+        </div>
+
+    <div id = "replacement-reserves">
+    <h1 class="heading">Replacement Reserves</h1>
+        <h1>Replacement Reserves</h1>
+        <div class="inputBox">
+            <div class="input">
+                <span> HOA Replacement Reserve Dues </span>
+                <input name="replacement_reserve_dues" placeholder=" HOA Replacement Reserve Dues " required>                
+            </div>
+        </div>
+        <h1>REPLACEMENT RESERVES (Replacement between 13 months and 30 years time, as well as exterior painting)</h1>
+        <div id="newinput1" class="inputBox after-add-more1">  
+            <div class = "input">
+                <span>Field Name</span>
+                <input type="text" name="key500"  placeholder="Field Name" required>  
+            </div>
+            <div class = "input">
+                <span>Price</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="value500"  placeholder="Value" required> 
+                </div>
+            </div> 
+        </div>     
+        <div class="input">   
+            <button class="btn btn-success add-more1" type="button"><i class="glyphicon glyphicon-plus"></i>+</button>  
+        </div>
+        <h1>Reserve Component List</h1>
+        <div id="newinput2" class="inputBox after-add-more1">  
+            <div class = "input">
+                <span>Component</span>
+                <input type="text" name="Component0"  placeholder="Component Name" required>  
+            </div>
+            <div class = "input">
+                <span>Useful Life</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="useful_life0"  placeholder="Useful Life" required> 
+                </div>
+            </div> 
+            <div class = "input">
+                <span>Quantity</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="quantity0"  placeholder="Quantity" required> 
+                </div>
+            </div> 
+            <div class = "input">
+                <span>Unit of Measure</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="unit_of_measure0"  placeholder="Unit of Measure" required> 
+                </div>
+            </div> 
+            <div class = "input">
+                <span>Unit Cost</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="unit_cost0"  placeholder="Unit Cost" required> 
+                </div>
+            </div> 
+            <div class = "input">
+                <span>Current Cost</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="current_cost0"  placeholder="Current Cost" required> 
+                </div>
+            </div>
+            <div class = "input">
+                <span>Current Fully Funded Balance</span>
+                <div class="input-group input_group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" name="current_fully_funded_balance"  placeholder="Current Fully Funded Balance" required> 
+                </div>
+            </div>
+        </div>
+        <div class="input">   
+            <button class="btn btn-success add-more2" type="button"><i class="glyphicon glyphicon-plus"></i>+</button>  
+        </div>
+
+        <!-- <div class="copy1 hide">  
+            <div class=" inputBox " style="margin-top:10px"> 
+                <div class = "input">
+                    <span>Field Name</span>
+                    <input id = "textId2" type="text" name=""  placeholder="Field Name">  
+                </div>
+                <div class = "input">
+                    <span>Price</span>
+                    <input id = "textId3" type="text" name="" placeholder="Value"> 
+                </div>   
+            </div>  
+        </div>      -->
+            <div class="input">
+                <button class="btn-submit" >Submit</button>
+            </div>
+    </div>
+    </form>
+    </section>
+    
+<script type="text/javascript">
+    var num = 1
+    var num2 = 501
+    
+    // $(document).ready(function() {  
+
+    //   $(".add-more31").click(function(){ 
+              
+    //       var html = $(".copy").html();  
+    //       $(".after-add-more").after(html);
+    //       $("#textId").attr("name", "key" + num);
+    //       $("#textId1").attr("name", "value" + num);
+          
+        
+    //       num = num + 1  
+    //   });    
+  
+    // });  
+
+    // $(document).ready(function(){  
+        
+    //     $(".add-more111").click(function(){ 
+                
+    //         var html = $(".copy1").html();  
+    //         $(".after-add-more1").after(html);
+    //         $("#textId2").attr("name","key"+ num2);
+    //         $("#textId3").attr("name","value"+ num2);
+            
+    //         num2 = num2 + 1  
+    //     });    
+    
+    //   });
+
+    $(document).ready(function() {
+        $(".delinquent_rate").click(function(){
+            var value1 = $('#dropDownId :selected').text();
+            if (value1 == "Yes"){
+                $(".percentage_field").removeClass("hide");
+            }
+            else if (value1 == "No"){
+                $(".percentage_field").addClass("hide");
+            }
+            else {
+                $(".percentage_field").addClass("hide");
+            }
+        });
+    });
+
+    $(".add-more").click(function () {
+        newRowAdd =
+        '<div class = "inputBox" id="row"> <div class="input input-group m-3">' +
+        '<span>Expense Name</span>' +
+        '<input id = "textId" name = '+ 'key'+ num +' type="text"  placeholder="Field Name" required> </div>'+
+        '<div class="input input-group m-3">' +
+        '<span>Price</span>' +
+        '<div class="input-group input_group">'+
+        '<span class="input-group-addon">$</span>'+
+        '<input id = "textId" name = '+ 'value'+ num +' type="text"  placeholder="Price" required> </div>'+
+        '</div><button class="btn-delete btn-danger" id="DeleteRow" type="button">' +
+        '<i class="bi bi-trash"></i>-</button></div>';
+        
+        $('#newinput').append(newRowAdd);
+        num = num + 1 
+    });
+    
+    $("body").on("click", "#DeleteRow", function () {
+        $(this).parents("#row").remove();
+    })
+
+
+    $(".add-more1").click(function () {
+        newRowAdd =
+        '<div class = "inputBox" id="row"> <div class="input input-group m-3">' +
+        '<span>Field Name</span>' +
+        '<input id = "textId" name = '+ 'key'+ num2 +' type="text"  placeholder="Field Name" required> </div>'+
+        '<div class="input input-group m-3">' +
+        '<span>Price</span>' +
+        '<div class="input-group input_group">'+
+        '<span class="input-group-addon">$</span>'+
+        '<input id = "textId" name = '+ 'value'+ num2 +' type="text"  placeholder="Price" required> </div>'+ 
+        '</div><button class="btn-delete btn-danger" id="DeleteRow" type="button">' +
+        '<i class="bi bi-trash"></i>-</button></div>';
+        
+        $('#newinput1').append(newRowAdd);
+        num2 = num2 + 1 
+    });
+
+    // $("body").on("click", "#DeleteRow", function () {
+    //     $(this).parents("#row").remove();
+    // })
+
+    $(".add-more2").click(function (){
+        newRowAdd = 
+        '<div class = "inputBox" id="row">'+
+        '<div class = "input">'+
+            '<span>Component</span>'+
+            '<input type="text" name="Component0"  placeholder="Component Name" required>'+  
+        '</div>'+
+        '<div class = "input">'+
+            '<span>Useful Life</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="useful_life0"  placeholder="Useful Life" required> '+
+            '</div>'+
+        '</div> '+
+        '<div class = "input">'+
+            '<span>Quantity</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="quantity0"  placeholder="Quantity" required>'+ 
+            '</div>'+
+        '</div> '+
+        '<div class = "input">'+
+            '<span>Unit of Measure</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="unit_of_measure0"  placeholder="Unit of Measure" required>'+ 
+            '</div>'+
+        '</div> '+
+        '<div class = "input">'+
+            '<span>Unit Cost</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="unit_cost0"  placeholder="Unit Cost" required> '+
+            '</div>'+
+        '</div> '+
+        '<div class = "input">'+
+            '<span>Current Cost</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="current_cost0"  placeholder="Current Cost" required>'+ 
+            '</div>'+
+        '</div>'+
+        '<div class = "input">'+
+            '<span>Current Fully Funded Balance</span>'+
+            '<div class="input-group input_group">'+
+                '<span class="input-group-addon">$</span>'+
+                '<input type="text" name="current_fully_funded_balance"  placeholder="Current Fully Funded Balance" required> '+
+            '</div>'+
+        '</div><button class="btn-delete btn-danger" id="DeleteRow" type="button">' +
+        '<i class="bi bi-trash"></i>-</button>'+
+        '</div>'
+
+        $('#newinput2').append(newRowAdd);
+        num = num + 1 
+    })
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <script src="https://kit.fontawesome.com/37ca218f1d.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+    <link rel="icon" href="./static/logo.png" type="image/x-icon">
+    <title>Reserve Study</title>
+</head>
+
+<body>
+
+    <section class="form" id = "form">
+    <form action="/api/form/" method="POST">
+    
+        <h1 class="heading">Common Expenses</h1>
+        <div class="inputBox">
+            <div class="input">
+                <span> Year </span>
+                <select class="city" id="city" name="year" required>
+                    <option value="#">Select</option>
+                    <option value=2019>2019</option>
+                    <option value=2020>2020</option>
+                </select>
+            </div>
+        </div>
+        <h1> COMMON EXPENSES </h1>
+        <div class="inputBox">
+            <div class="input">
+                <span> HOA Common Expenses Dues </span>
+                <input name="common_expenses Dues" placeholder=" HOA Common Expenses Dues " required>
+            </div>
+            <div class="input">
+                <span>Number of Units</span>
+                <input name="number_units" placeholder="Number of Units" required>
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>Minus Delinquent Payments(2%)</span>
+                <select name="minus_delinquent_payment" required>
+                    <option value="0">Select</option>
+                    <option value=".02">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+        </div>
+        <h1>COMMON EXPENSES (Yearly)</h1>
+        
+        <div class="inputBox after-add-more">  
+            <div class = "input">
+                <input  type="text" name="key0"  placeholder="Field Name">  
+            </div>
+            <div class = "input">
+                <input type="text" name="value0"  placeholder="Value"> 
+            </div> 
+        </div>
+        <div class="copy hide">  
+            <div class=" inputBox " style="margin-top:10px"> 
+                <div class = "input">
+                    <input id = "textId" type="text"  placeholder="Field Name">  
+                </div>
+                <div class = "input">
+                    <input id = "textId1" type="text" placeholder="Value"> 
+                </div>   
+            </div>  
+        </div>
+        <div class="inputBox">
+            <div class="input">   
+                <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>  
+            </div>
+        </div>
+        
+    <br>
+    <br>
+
+    <div id = "replacement-reserves">
+    <h1 class="heading">Replacement Reserves</h1>
+        <h1>Replacement Reserves</h1>
+        <div class="inputBox">
+            <div class="input">
+                <span> HOA Replacement Reserve Dues </span>
+                <input name="replacement_reserve_dues" placeholder=" HOA Replacement Reserve Dues " required>                
+            </div>
+        </div>
+        <h1>REPLACEMENT RESERVES (Replacement between 13 months and 30 years time, as well as exterior painting)</h1>
+        <div class="inputBox after-add-more1">  
+            <div class = "input">
+                <input type="text" name="key500"  placeholder="Field Name">  
+            </div>
+            <div class = "input">
+                <input type="text" name="value500"  placeholder="Value"> 
+            </div> 
+        </div>     
+        <div class="copy1 hide">  
+            <div class=" inputBox " style="margin-top:10px"> 
+                <div class = "input">
+                    <input id = "textId2" type="text" name=""  placeholder="Field Name">  
+                </div>
+                <div class = "input">
+                    <input id = "textId3" type="text" name="" placeholder="Value"> 
+                </div>   
+            </div>  
+        </div>     
+        <div class="inputBox">
+            <div class="input">   
+                <button class="btn btn-success add-more1" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>  
+            </div>
+            <div class="input">
+                <span></span>
+                <button class="btn" >Submit</button>
+            </div>
+        </div>
+    </div>
+    </form>
+    </section>
+    
+<script type="text/javascript">
+    var num = 1
+    
+    $(document).ready(function() {  
+
+      $(".add-more").click(function(){ 
+              
+          var html = $(".copy").html();  
+          $(".after-add-more").after(html);
+          $("#textId").attr("name", "key" + num);
+          $("#textId1").attr("name", "value" + num);
+        
+          num = num + 1  
+      });    
+  
+    });  
+
+    var num2 = 501
+    $(document).ready(function(){  
+        
+        $(".add-more1").click(function(){ 
+                
+            var html = $(".copy1").html();  
+            $(".after-add-more1").after(html);
+            $("#textId2").attr("name","key"+ num2);
+            $("#textId3").attr("name","value"+ num2);
+            
+            num2 = num2 + 1  
+        });    
+    
+      });
+  
+</script>
+
+</body>
+</html>
+
+
